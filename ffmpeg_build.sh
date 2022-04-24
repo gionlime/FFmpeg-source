@@ -4,9 +4,9 @@ if [ -f "$CONFIG_FILE_PATH" ]; then
    make clean
 fi
 echo $(date "+%Y-%m-%d %H:%M:%S")
-echo -e "\033[32m Shell create by lijunjun \033[0m"
+echo -e "\033[32mShell create by lijunjun \033[0m"
 set -e
-archbit=32
+archbit=64
 
 if [ $archbit -eq 64 ];then
 echo "build for 64bit"
@@ -28,7 +28,7 @@ CFLAGS="-mfloat-abi=softfp -march=$CPU"
 LDFLAGS="-Wl,--fix-cortex-a8"
 fi
 
-export NDK=/Users/mac/Library/Android/sdk/ndk/android-ndk-r20b
+export NDK=/Users/lijun/Library/Android/sdk/ndk/android-ndk-r22b
 export TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin
 export SYSROOT=$NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot
 export CROSS_PREFIX=$TOOLCHAIN/$ARCH-linux-$ANDROID-
@@ -71,4 +71,4 @@ function build_android {
 }
 build_android
 echo $(date "+%Y-%m-%d %H:%M:%S")
-echo -e "\033[32m ===============Build ffmpeg success==================== \033[0m"
+echo -e "\033[32m ===============Build success==================== \033[0m"
